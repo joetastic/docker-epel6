@@ -1,0 +1,15 @@
+diff --git a/utils/utils.go b/utils/utils.go
+index 8d3b3eb..99d11b6 100644
+--- a/utils/utils.go
++++ b/utils/utils.go
+@@ -208,8 +208,8 @@ func CopyEscapable(dst io.Writer, src io.ReadCloser) (written int64, err error)
+ 		nr, er := src.Read(buf)
+ 		if nr > 0 {
+ 			// ---- Docker addition
+-			// char 16 is C-p
+-			if nr == 1 && buf[0] == 16 {
++			// char 22 is C-v
++			if nr == 1 && buf[0] == 22 {
+ 				nr, er = src.Read(buf)
+ 				// char 17 is C-q
+ 				if nr == 1 && buf[0] == 17 {
